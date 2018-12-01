@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Injector } from '@angular/core';
 import { appModuleAnimation } from '@shared/animations/routerTransition';
-import { PagedListingComponentBase } from '@shared/paged-listing-component-base';
-import { CaseListDto, CreateCaseInput, CaseServiceProxy } from '@shared/service-proxies/service-proxies';
+import { PagedListingComponentBase, PagedRequestDto } from '@shared/paged-listing-component-base';
+import { CaseListDto, CreateCaseInput, CaseServiceProxy, EntityDtoOfGuid, ListResultDtoOfCaseListDto } from '@shared/service-proxies/service-proxies';
 
 @Component({
   //selector: 'app-cases',
@@ -11,11 +11,11 @@ import { CaseListDto, CreateCaseInput, CaseServiceProxy } from '@shared/service-
 })
 export class CasesComponent extends PagedListingComponentBase<CaseListDto> {
 
-  @ViewChild('createEventModal') createEventModal : CreateCaseComponent;
+  @ViewChild('createCaseModal') createCaseModal : CreateCaseComponent;
 
   active: boolean = false;
   cases: CaseListDto[] = [];
-  includeCanceledEvents:boolean=false;
+  includeCanceledCases:boolean=false;
 
   constructor(
     injector: Injector,
@@ -24,6 +24,40 @@ export class CasesComponent extends PagedListingComponentBase<CaseListDto> {
     super(injector);
   }
 
-  
+  protected list(request: PagedRequestDto, pageNumber: number, finishedCallback: Function) : void {
+    this.loadCases();
+    finishedCallback();
+  }
+
+  protected delete(event: EntityDtoOfGuid) : void {
+    abp.message.confirm(
+      'Are you sure you want to cancel this case?',
+      (result: boolean) => {
+        if(result){
+          this._caseService.cancelAsync(event)
+              .subscribe(() => {
+                  abp.notify.info('Case is deleted');
+                  this.refresh();
+                });
+        }
+      }
+    );
+  }
+
+  includeCanceledCasesCheckboxChanged() {
+    this.loadCases();
+  };
+
+   // Show Modals
+   createCase(): void {
+    this.createCaseModal.show();
+  }
+
+  loadCases() {
+    this._caseService.getListAsync(this.includeCanceledCases)
+        .subscribe((result: ListResultDtoOfCaseListDto) => {
+            this.cases = result.items;
+          });
+  }
 
 }
