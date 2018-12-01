@@ -2,12 +2,11 @@ import { Component, OnInit, ViewChild, Injector } from '@angular/core';
 import { appModuleAnimation } from '@shared/animations/routerTransition';
 import { PagedListingComponentBase, PagedRequestDto } from '@shared/paged-listing-component-base';
 import { CaseListDto, CreateCaseInput, CaseServiceProxy, EntityDtoOfGuid, ListResultDtoOfCaseListDto } from '@shared/service-proxies/service-proxies';
+import { CreateCaseComponent } from './create-case/create-case.component';
 
-@Component({
-  //selector: 'app-cases',
+@Component({  
   templateUrl: './cases.component.html',
-  animations: [appModuleAnimation()]
-  //styleUrls: ['./cases.component.css']
+  animations: [appModuleAnimation()]  
 })
 export class CasesComponent extends PagedListingComponentBase<CaseListDto> {
 

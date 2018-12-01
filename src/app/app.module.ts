@@ -33,6 +33,7 @@ import { SideBarNavComponent } from '@app/layout/sidebar-nav.component';
 import { SideBarFooterComponent } from '@app/layout/sidebar-footer.component';
 import { RightSideBarComponent } from '@app/layout/right-sidebar.component';
 import { CasesComponent } from './cases/cases.component';
+import { CreateCaseComponent } from './cases/create-case/create-case.component';
 
 @NgModule({
     declarations: [
@@ -54,7 +55,8 @@ import { CasesComponent } from './cases/cases.component';
         SideBarNavComponent,
         SideBarFooterComponent,
         RightSideBarComponent,
-        CasesComponent
+        CasesComponent,
+        CreateCaseComponent
     
     ],
     imports: [
