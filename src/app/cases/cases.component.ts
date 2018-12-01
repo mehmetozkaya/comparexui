@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Injector } from '@angular/core';
 import { appModuleAnimation } from '@shared/animations/routerTransition';
+import { PagedListingComponentBase } from '@shared/paged-listing-component-base';
+import { CaseListDto, CreateCaseInput, CaseServiceProxy } from '@shared/service-proxies/service-proxies';
 
 @Component({
   //selector: 'app-cases',
@@ -7,11 +9,21 @@ import { appModuleAnimation } from '@shared/animations/routerTransition';
   animations: [appModuleAnimation()]
   //styleUrls: ['./cases.component.css']
 })
-export class CasesComponent implements OnInit {
+export class CasesComponent extends PagedListingComponentBase<CaseListDto> {
 
-  constructor() { }
+  @ViewChild('createEventModal') createEventModal : CreateCaseComponent;
 
-  ngOnInit() {
+  active: boolean = false;
+  cases: CaseListDto[] = [];
+  includeCanceledEvents:boolean=false;
+
+  constructor(
+    injector: Injector,
+    private _caseService : CaseServiceProxy
+  ) {
+    super(injector);
   }
+
+  
 
 }
