@@ -1,6 +1,6 @@
 import { Component, Injector, ViewChild, ElementRef, Output, EventEmitter } from "@angular/core";
 import { AppComponentBase } from "@shared/app-component-base";
-import { CaseServiceProxy } from "@shared/service-proxies/service-proxies";
+import { CaseServiceProxy, CreateCaseInput } from "@shared/service-proxies/service-proxies";
 import { ModalDirective } from "ngx-bootstrap";
 
 
@@ -15,6 +15,10 @@ export class CreateCaseComponent extends AppComponentBase{
     @ViewChild('caseDate') caseDate: ElementRef;
 
     @Output() modalSave: EventEmitter<any> = new EventEmitter<any>();
+
+    active: boolean = false;
+    saving: boolean = false;
+    case: CreateCaseInput = null;
   
     constructor(
         injector: Injector,
@@ -24,7 +28,10 @@ export class CreateCaseComponent extends AppComponentBase{
     }
     
     show(): any {
-    throw new Error("Method not implemented.");
+        this.active = true;
+        this.modal.show();
+        this.case = new CreateCaseInput();
+        this.case.init({ isActive : true });
   }
 
 }
