@@ -1,6 +1,7 @@
-import { Component, Injector } from "@angular/core";
+import { Component, Injector, ViewChild, ElementRef, Output, EventEmitter } from "@angular/core";
 import { AppComponentBase } from "@shared/app-component-base";
 import { CaseServiceProxy } from "@shared/service-proxies/service-proxies";
+import { ModalDirective } from "ngx-bootstrap";
 
 
 @Component({
@@ -9,6 +10,11 @@ import { CaseServiceProxy } from "@shared/service-proxies/service-proxies";
 })
 export class CreateCaseComponent extends AppComponentBase{
   
+    @ViewChild('createCaseModal') modal: ModalDirective;
+    @ViewChild('modalContent') modalContent: ElementRef;
+    @ViewChild('caseDate') caseDate: ElementRef;
+
+    @Output() modalSave: EventEmitter<any> = new EventEmitter<any>();
   
     constructor(
         injector: Injector,
