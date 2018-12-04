@@ -1,0 +1,48 @@
+<div class="row clearfix" [@routerTransition]>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card main-content">
+            <div class="header">
+                <h2>
+                    {{case.title}} <span class="case-detail-header"><i class="fa fa-calendar"></i> <span>{{case.date | date:'short'}}</span></span>
+                </h2>
+                <ul class="header-dropdown m-r--5">
+                    <li>
+                        <div>
+                            <button type="button" [routerLink]="['/app/cases']" class="btn bg-black waves-effect waves-light"><i class="fa fa-arrow-circle-left"></i> {{l('BackToCases')}}</button>
+                            <button *ngIf="!isRegistered() && !case.isCancelled" type="button" class="btn bg-green waves-effect waves-light" (click)="registerToCase()"><i class="fa fa-star"></i> {{l('Register')}}</button>
+                            <button *ngIf="isRegistered() && !case.isCancelled" type="button" class="btn bg-orange waves-effect waves-light" (click)="cancelRegistrationFromCase()"><i class="fa fa-remove"></i> {{l('CancelRegistration')}}</button>
+                            <button *ngIf="iscaseCreator() && !case.isCancelled" type="button" class="btn bg-red waves-effect waves-light" (click)="cancelCase()"><i class="fa fa-remove"></i> {{l('CancelTheCase')}}</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="body table-responsive">
+                <div>
+                    {{case.description}}
+                </div>
+                <h5>
+                    {{l("XregisteredOfYAvailableRegistration", case.registrationsCount, case.maxRegistrationCount)}}
+                </h5>
+
+                <hr />
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{l('Name')}}</th>
+                            <th>{{l('Surname')}}</th>
+                            <th>{{l('CreationTime')}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let registration of case.registrations">
+                            <td>{{registration.userName}}</td>
+                            <td>{{registration.userSurname}}</td>
+                            <td>{{registration.creationTime | date:'short'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
