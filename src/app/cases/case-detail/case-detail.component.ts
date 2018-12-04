@@ -1,12 +1,16 @@
 import { AppComponentBase } from "@shared/app-component-base";
-import { OnInit, Injector } from "@angular/core";
+import { OnInit, Injector, Component } from "@angular/core";
 import { CaseDetailOutput, CaseServiceProxy, EntityDtoOfGuid, CaseRegisterOutput } from "@shared/service-proxies/service-proxies";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import { __createInputTransfer } from "@angularclass/hmr";
 
 import * as _ from "lodash";
+import { appModuleAnimation } from "@shared/animations/routerTransition";
 
-
+@Component({
+    templateUrl: './case-detail.component.html',
+    animations: [appModuleAnimation()]
+})
 export class CaseDetailComponent extends AppComponentBase implements OnInit {
 
     case: CaseDetailOutput = new CaseDetailOutput();
