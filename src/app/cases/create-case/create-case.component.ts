@@ -47,6 +47,7 @@ export class CreateCaseComponent extends AppComponentBase{
 
     save(): void {
         this.saving = true;
+        this.case.date = moment();
         //this.case.date = moment($(this.caseDate.nativeElement).data('DateTimePicker').date().format('YYYY-MM-DDTHH:mm:ssZ'));
 
         this._caseService.createAsync(this.case)     
