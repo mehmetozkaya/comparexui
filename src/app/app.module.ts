@@ -34,6 +34,7 @@ import { SideBarFooterComponent } from '@app/layout/sidebar-footer.component';
 import { RightSideBarComponent } from '@app/layout/right-sidebar.component';
 import { CasesComponent } from './cases/cases.component';
 import { CreateCaseComponent } from './cases/create-case/create-case.component';
+import { CaseDetailComponent } from './cases/case-detail/case-detail.component';
 
 @NgModule({
     declarations: [
@@ -56,7 +57,8 @@ import { CreateCaseComponent } from './cases/create-case/create-case.component';
         SideBarFooterComponent,
         RightSideBarComponent,
         CasesComponent,
-        CreateCaseComponent
+        CreateCaseComponent,
+        CaseDetailComponent
     
     ],
     imports: [

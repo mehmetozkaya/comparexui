@@ -8,6 +8,7 @@ import { UsersComponent } from './users/users.component';
 import { TenantsComponent } from './tenants/tenants.component';
 import { RolesComponent } from 'app/roles/roles.component';
 import { CasesComponent } from './cases/cases.component';
+import { CaseDetailComponent } from './cases/case-detail/case-detail.component';
 
 @NgModule({
     imports: [
@@ -20,6 +21,7 @@ import { CasesComponent } from './cases/cases.component';
                     { path: 'users', component: UsersComponent, data: { permission: 'Pages.Users' }, canActivate: [AppRouteGuard] },
                     { path: 'roles', component: RolesComponent, data: { permission: 'Pages.Roles' }, canActivate: [AppRouteGuard] },
                     { path: 'cases', component: CasesComponent, data: { permission: 'Pages.Cases' }, canActivate: [AppRouteGuard] },
+                    { path: 'cases/:caseId', component: CaseDetailComponent },
                     { path: 'tenants', component: TenantsComponent, data: { permission: 'Pages.Tenants' }, canActivate: [AppRouteGuard] },
                     { path: 'about', component: AboutComponent }
                 ]
