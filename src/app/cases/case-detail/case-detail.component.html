@@ -11,7 +11,7 @@
                             <button type="button" [routerLink]="['/app/cases']" class="btn bg-black waves-effect waves-light"><i class="fa fa-arrow-circle-left"></i> {{l('BackToCases')}}</button>
                             <button *ngIf="!isRegistered() && !case.isCancelled" type="button" class="btn bg-green waves-effect waves-light" (click)="registerToCase()"><i class="fa fa-star"></i> {{l('Register')}}</button>
                             <button *ngIf="isRegistered() && !case.isCancelled" type="button" class="btn bg-orange waves-effect waves-light" (click)="cancelRegistrationFromCase()"><i class="fa fa-remove"></i> {{l('CancelRegistration')}}</button>
-                            <button *ngIf="iscaseCreator() && !case.isCancelled" type="button" class="btn bg-red waves-effect waves-light" (click)="cancelCase()"><i class="fa fa-remove"></i> {{l('CancelTheCase')}}</button>
+                            <button *ngIf="isCaseCreator() && !case.isCancelled" type="button" class="btn bg-red waves-effect waves-light" (click)="cancelCase()"><i class="fa fa-remove"></i> {{l('CancelTheCase')}}</button>
                         </div>
                     </li>
                 </ul>
