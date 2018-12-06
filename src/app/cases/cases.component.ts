@@ -59,4 +59,8 @@ export class CasesComponent extends PagedListingComponentBase<CaseListDto> {
           });
   }
 
+  readfromCase() : void {
+    
+  }
+
 }
