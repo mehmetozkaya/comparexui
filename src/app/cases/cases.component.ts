@@ -60,7 +60,8 @@ export class CasesComponent extends PagedListingComponentBase<CaseListDto> {
   }
 
   readfromCase() : void {
-    
+    this.loadCases();
+    // TODO : read loaded cases for ui
   }
 
 }
