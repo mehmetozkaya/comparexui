@@ -1,6 +1,6 @@
 import { AppComponentBase } from "@shared/app-component-base";
 import { OnInit, Injector, Component } from "@angular/core";
-import { CaseDetailOutput, CaseServiceProxy, EntityDtoOfGuid, CaseRegisterOutput } from "@shared/service-proxies/service-proxies";
+import { CaseDetailOutput, CaseServiceProxy, EntityDtoOfGuid, CaseRegisterOutput, ListResultDtoOfCaseListDto } from "@shared/service-proxies/service-proxies";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import { __createInputTransfer } from "@angularclass/hmr";
 
@@ -85,7 +85,10 @@ export class CaseDetailComponent extends AppComponentBase implements OnInit {
     };
 
     gettingDetailResults() : void {
-        
+        this._caseService.getListAsync(true)
+            .subscribe((result: ListResultDtoOfCaseListDto) => {
+
+            });
     }
 
 }
