@@ -84,4 +84,8 @@ export class CaseDetailComponent extends AppComponentBase implements OnInit {
         this._router.navigate(['app/cases']);
     };
 
+    gettingDetailResults() : void {
+        
+    }
+
 }
