@@ -9,6 +9,7 @@ import { TenantsComponent } from './tenants/tenants.component';
 import { RolesComponent } from 'app/roles/roles.component';
 import { CasesComponent } from './cases/cases.component';
 import { CaseDetailComponent } from './cases/case-detail/case-detail.component';
+import { PhoneBookComponent } from './phonebook/phonebook.component';
 
 @NgModule({
     imports: [

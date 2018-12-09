@@ -35,6 +35,7 @@ import { RightSideBarComponent } from '@app/layout/right-sidebar.component';
 import { CasesComponent } from './cases/cases.component';
 import { CreateCaseComponent } from './cases/create-case/create-case.component';
 import { CaseDetailComponent } from './cases/case-detail/case-detail.component';
+import { PhoneBookComponent } from './phonebook/phonebook.component';
 
 @NgModule({
     declarations: [
@@ -47,7 +48,7 @@ import { CaseDetailComponent } from './cases/case-detail/case-detail.component';
         UsersComponent,
 		CreateUserComponent,
 		EditUserComponent,
-      	RolesComponent,        
+      	RolesComponent,
 		CreateRoleComponent,
 		EditRoleComponent,
         TopBarComponent,
@@ -58,7 +59,8 @@ import { CaseDetailComponent } from './cases/case-detail/case-detail.component';
         RightSideBarComponent,
         CasesComponent,
         CreateCaseComponent,
-        CaseDetailComponent
+        CaseDetailComponent,
+        PhoneBookComponent
     
     ],
     imports: [
