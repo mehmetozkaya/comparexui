@@ -22,6 +22,7 @@ import { CaseDetailComponent } from './cases/case-detail/case-detail.component';
                     { path: 'roles', component: RolesComponent, data: { permission: 'Pages.Roles' }, canActivate: [AppRouteGuard] },
                     { path: 'cases', component: CasesComponent, data: { permission: 'Pages.Cases' }, canActivate: [AppRouteGuard] },
                     { path: 'cases/:caseId', component: CaseDetailComponent },
+                    { path: 'phonebook', component: PhoneBookComponent },
                     { path: 'tenants', component: TenantsComponent, data: { permission: 'Pages.Tenants' }, canActivate: [AppRouteGuard] },
                     { path: 'about', component: AboutComponent }
                 ]
