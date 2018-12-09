@@ -1,19 +1,59 @@
-<div [@routerTransition]>
-    <div class="m-subheader ">
-        <div class="d-flex align-items-center">
-            <div class="mr-auto col-sm-6">
-                <h3 class="m-subheader__title m-subheader__title--separator">
-                    <span>{{l("PhoneBook")}}</span>
-                </h3>
-            </div>
-        </div>
-    </div>
-    <div class="m-content">
-        <div class="m-portlet m-portlet--mobile">
-            <div class="m-portlet__body">
-                <p>PHONE BOOK CONTENT COMES HERE!</p>
-            </div>
-        </div>
-    </div>
+<div class="row clearfix" [@routerTransition]>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card main-content">
+                <div class="header">
+                    <h2>
+                        {{l('PhoneBook')}}
+                    </h2>
+                    <ul class="header-dropdown m-r--5">
+                        <i class="fa fa-spin fa-spinner" *ngIf="isTableLoading"></i>
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">more_vert</i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="javascript:void(0);" class=" waves-effect <waves-block></waves-block>" (click)="refresh();"><i class="material-icons">refresh</i> Refresh</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="body table-responsive">
+    
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>{{l('PersonName')}}</th>
+                                <th>{{l('PersonSurname')}}</th>
+                                <th>{{l('EmailAddress')}}</th>
+                                <th>{{l('Actions')}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let person of people | paginate: { id: 'server', itemsPerPage: pageSize, currentPage: pageNumber, totalItems: totalItems }">
+                                <td>{{person.name}}</td>
+                                <td>{{person.surname}}</td>
+                                <td>{{person.emailAddress}}</td>
 
-</div>
+                                <td class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">menu</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);" class="waves-effect waves-block" (click)="editRole(role)"><i class="material-icons">create</i>Edit</a></li>
+                                        <li><a href="javascript:void(0);" class="waves-effect waves-block" (click)="delete(role)"><i class="material-icons">delete_sweep</i>Delete</a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+    
+                    <div class="text-align: center;" *ngIf="totalItems > pageSize">
+                        <pagination-controls (pageChange)="getDataPage($event)" id="server"></pagination-controls>
+                    </div>
+                    <button type="button" data-toggle="modal" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" (click)="createPerson()">
+                        <i class="material-icons">add</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
