@@ -62,7 +62,7 @@ import { CreatePersonModalComponent } from './phonebook/create-person-modal/crea
         CreateCaseComponent,
         CaseDetailComponent,
         PhoneBookComponent,
-        CreatePersonModalComponent
+        CreatePersonModalComponent        
     
     ],
     imports: [
