@@ -36,6 +36,7 @@ import { CasesComponent } from './cases/cases.component';
 import { CreateCaseComponent } from './cases/create-case/create-case.component';
 import { CaseDetailComponent } from './cases/case-detail/case-detail.component';
 import { PhoneBookComponent } from './phonebook/phonebook.component';
+import { CreatePersonModalComponent } from './phonebook/create-person-modal/create-person-modal.component';
 
 @NgModule({
     declarations: [
@@ -60,7 +61,8 @@ import { PhoneBookComponent } from './phonebook/phonebook.component';
         CasesComponent,
         CreateCaseComponent,
         CaseDetailComponent,
-        PhoneBookComponent
+        PhoneBookComponent,
+        CreatePersonModalComponent
     
     ],
     imports: [
