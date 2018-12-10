@@ -14,6 +14,7 @@ export class CreatePersonModalComponent extends AppComponentBase implements OnIn
 
   @ViewChild('modal') modal: ModalDirective;
   @ViewChild('nameInput') nameInput: ElementRef;
+  @ViewChild('modalContent') modalContent: ElementRef;
 
   person: CreatePersonInput = new CreatePersonInput();
 
@@ -34,6 +35,7 @@ export class CreatePersonModalComponent extends AppComponentBase implements OnIn
   }
 
   onShown(): void {
+    $.AdminBSB.input.activate($(this.modalContent.nativeElement));
     this.nameInput.nativeElement.focus();
   }
 

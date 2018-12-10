@@ -1,6 +1,6 @@
 <div bsModal #modal="bs-modal" (onShown)="onShown()" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true" [config]="{backdrop: 'static'}">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div #modalContent class="modal-content">
 
             <form *ngIf="active" #personForm="ngForm" novalidate (ngSubmit)="save()">
                 
