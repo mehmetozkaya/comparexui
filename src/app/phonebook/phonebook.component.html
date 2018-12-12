@@ -50,7 +50,7 @@
                     <div class="text-align: center;" *ngIf="totalItems > pageSize">
                         <pagination-controls (pageChange)="getDataPage($event)" id="server"></pagination-controls>
                     </div>
-                    <button type="button" data-toggle="modal" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" (click)="createPersonModal.show()">
+                    <button *ngIf="isGranted('Pages.Tenant.PhoneBook.CreatePerson')" type="button" data-toggle="modal" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" (click)="createPersonModal.show()">
                         <i class="material-icons">add</i>
                     </button>
                     
