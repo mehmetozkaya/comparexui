@@ -33,11 +33,19 @@ export class PhoneBookComponent extends AppComponentBase implements OnInit {
     }
 
     deletePerson(person: PersonDto): void {
-        this._personService.deletePerson(person.id)
-            .subscribe((result) => {
-                this.notify.info(this.l('SuccessfullyDeleted'));
-                _.remove(this.people, person);
-            })
+        debugger;
+        this.message.confirm(
+            this.l('AreYouSureToDeleteThePerson', person.name),
+            isConfirmed => {
+                if (isConfirmed) {
+                    this._personService.deletePerson(person.id)
+                        .subscribe((result) => {
+                            this.notify.info(this.l('SuccessfullyDeleted'));
+                            _.remove(this.people, person);
+                        });
+                }
+            }
+        );        
     }
 
 }
