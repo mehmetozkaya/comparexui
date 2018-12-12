@@ -2,6 +2,7 @@ import { AppComponentBase } from "@shared/app-component-base";
 import { Component, Injector, OnInit } from "@angular/core";
 import { appModuleAnimation } from "@shared/animations/routerTransition";
 import { PersonDto, PersonServiceProxy } from "@shared/service-proxies/service-proxies";
+import * as _ from "lodash";
 
 
 @Component({
@@ -28,6 +29,14 @@ export class PhoneBookComponent extends AppComponentBase implements OnInit {
         this._personService.getPeople(this.filter)
             .subscribe((result) => {
                 this.people = result.items;
+            })
+    }
+
+    deletePerson(person: PersonDto): void {
+        this._personService.deletePerson(person.id)
+            .subscribe((result) => {
+                this.notify.info(this.l('SuccessfullyDeleted'));
+                _.remove(this.people, person);
             })
     }
 

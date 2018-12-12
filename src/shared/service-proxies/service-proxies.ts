@@ -3408,7 +3408,7 @@ export class PersonDto implements IPersonDto {
     lastModifierUserId: number | undefined;
     creationTime: moment.Moment | undefined;
     creatorUserId: number | undefined;
-    id: number | undefined;
+    id: string | undefined;
 
     constructor(data?: IPersonDto) {
         if (data) {
@@ -3477,7 +3477,7 @@ export interface IPersonDto {
     lastModifierUserId: number | undefined;
     creationTime: moment.Moment | undefined;
     creatorUserId: number | undefined;
-    id: number | undefined;
+    id: string | undefined;
 }
 
 export class CreatePersonInput implements ICreatePersonInput {
