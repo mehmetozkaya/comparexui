@@ -3,7 +3,7 @@
             <div class="card main-content">
                 <div class="header">
                     <h2>
-                        {{l('PhoneBook')}}
+                        {{l('PhoneBook')}}  ({{people.length}})
                     </h2>
                     <ul class="header-dropdown m-r--5">
                         <i class="fa fa-spin fa-spinner" *ngIf="isTableLoading"></i>
@@ -17,6 +17,17 @@
                         </li>
                     </ul>
                 </div>
+
+                <form autocomplete="off">
+                    <div class="form-line">
+                            <label class="form-label">{{l("Filter")}}</label>
+                            <input class="form-control" type="text" name="filterText" [(ngModel)]="filter" maxlength="64" minlength="2">                            
+                            <span class="input-group-btn">
+                                    <button (click)="getPeople()" class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+                            </span>
+                    </div>                    
+                </form>
+
                 <div class="body table-responsive">
     
                     <table class="table table-hover table-striped">
@@ -30,7 +41,23 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let person of people | paginate: { id: 'server', itemsPerPage: pageSize, currentPage: pageNumber, totalItems: totalItems }">
-                                <td>{{person.name}}</td>
+                                <td>{{person.name}}
+                                    
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>{{l('PersonName')}}</th>
+                                                <th>{{l('PersonSurname')}}</th>
+                                                <th>{{l('EmailAddress')}}</th>
+                                                <th>{{l('Actions')}}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+    
+                                        </tbody>
+                                    </table>
+
+                                </td>
                                 <td>{{person.surname}}</td>
                                 <td>{{person.emailAddress}}</td>
 
@@ -43,6 +70,9 @@
                                         <li><a href="javascript:void(0);" class="waves-effect waves-block" (click)="deletePerson(person)"><i class="material-icons">delete_sweep</i>Delete</a></li>
                                     </ul>
                                 </td>
+
+                                
+
                             </tr>
                         </tbody>
                     </table>
@@ -54,9 +84,9 @@
                         <i class="material-icons">add</i>
                     </button>
                     
-                    <div class="col-sm-6 text-right">
+                    <!-- <div class="col-sm-6 text-right">
                             <button *ngIf="isGranted('Pages.Tenant.PhoneBook.CreatePerson')" class="btn btn-primary" (click)="createPersonModal.show()"><i class="fa fa-plus"></i> {{l("CreateNewPerson")}}</button>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
