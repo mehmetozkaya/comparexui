@@ -13,6 +13,7 @@ export class EditPersonModalComponent extends AppComponentBase {
 
   @ViewChild('modal') modal: ModalDirective;
   @ViewChild('nameInput') nameInput: ElementRef;
+  @ViewChild('modalContent') modalContent: ElementRef;
   
   person: EditPersonInput = new EditPersonInput();
 
@@ -36,7 +37,8 @@ export class EditPersonModalComponent extends AppComponentBase {
   }
 
   onShown(): void {
-    // this.nameInput.nativeElement.focus();
+    $.AdminBSB.input.activate($(this.modalContent.nativeElement));
+    this.nameInput.nativeElement.focus();
    }
 
    save(): void {
