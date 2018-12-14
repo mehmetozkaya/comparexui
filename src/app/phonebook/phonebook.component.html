@@ -43,17 +43,40 @@
                             <tr *ngFor="let person of people | paginate: { id: 'server', itemsPerPage: pageSize, currentPage: pageNumber, totalItems: totalItems }">
                                 <td>{{person.name}}
                                     
+                                    <!--Phone table-->
                                     <table>
                                         <thead>
                                             <tr>
-                                                <th>{{l('PersonName')}}</th>
-                                                <th>{{l('PersonSurname')}}</th>
-                                                <th>{{l('EmailAddress')}}</th>
-                                                <th>{{l('Actions')}}</th>
+                                                <th style="width:10%"></th>
+                                                <th style="width:15%">{{l("Type")}}</th>
+                                                <th style="width:75%">{{l("PhoneNumber")}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-    
+                                            <tr *ngFor="let phone of person.phones">
+                                                    <td>
+                                                        <button (click)="deletePhone(phone, person)" class="btn btn-outline-danger m-btn m-btn--icon m-btn--icon-only m-btn--pill">
+                                                            <i class="fa fa-times"></i>
+                                                        </button>
+                                                    </td>
+                                                    <td>{{getPhoneTypeAsString(phone.type)}}</td>
+                                                    <td>{{phone.number}}</td>
+                                            </tr>
+                                            <tr>
+                                                    <td>
+                                                        <button (click)="savePhone()" class="btn btn-sm btn-success">
+                                                            <i class="fa fa-floppy-o"></i>
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <select name="Type" [(ngModel)]="newPhone.type"class="form-control">
+                                                            <option value="0">{{l("PhoneType_Mobile")}}</option>
+                                                            <option value="1">{{l("PhoneType_Home")}}</option>
+                                                            <option value="2">{{l("PhoneType_Business")}}</option>
+                                                        </select>
+                                                    </td>
+                                                    <td><input type="text" name="number" [(ngModel)]="newPhone.number" class="form-control" /></td>
+                                            </tr>
                                         </tbody>
                                     </table>
 
