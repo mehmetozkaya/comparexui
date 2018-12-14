@@ -97,7 +97,9 @@
                                     </ul>
                                 </td>
 
-                                
+                                <button *ngIf="isGranted('Pages.Tenant.PhoneBook.EditPerson')" (click)="editPersonModal.show(person.id)" title="{{l('EditPerson')}}" class="btn btn-outline-success m-btn m-btn--icon m-btn--icon-only m-btn--pill">
+                                    <i class="fa fa-pencil"></i>
+                                </button>
 
                             </tr>
                         </tbody>
@@ -119,5 +121,6 @@
         </div>
 
         <createPersonModal #createPersonModal (modalSave)="getPeople()"></createPersonModal>
+        <editPersonModal #editPersonModal (modalSave)="getPeople()"></editPersonModal>
 
     </div>
