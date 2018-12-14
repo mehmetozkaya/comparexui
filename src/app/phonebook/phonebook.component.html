@@ -43,7 +43,8 @@
                             <tr *ngFor="let person of people | paginate: { id: 'server', itemsPerPage: pageSize, currentPage: pageNumber, totalItems: totalItems }">
                                 <td>{{person.name}}
                                     
-                                    <!--Phone table-->
+                                <!--START PHONE TABLE-->
+                                <div class="row" *ngIf="person === editingPerson">
                                     <table>
                                         <thead>
                                             <tr>
@@ -79,6 +80,8 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                </div>
+                                <!--END OF PHONES-->
 
                                 </td>
                                 <td>{{person.surname}}</td>
