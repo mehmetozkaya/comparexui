@@ -37,6 +37,7 @@ import { CreateCaseComponent } from './cases/create-case/create-case.component';
 import { CaseDetailComponent } from './cases/case-detail/case-detail.component';
 import { PhoneBookComponent } from './phonebook/phonebook.component';
 import { CreatePersonModalComponent } from './phonebook/create-person-modal/create-person-modal.component';
+import { EditPersonModalComponent } from './phonebook/edit-person-modal/edit-person-modal.component';
 
 @NgModule({
     declarations: [
@@ -62,7 +63,8 @@ import { CreatePersonModalComponent } from './phonebook/create-person-modal/crea
         CreateCaseComponent,
         CaseDetailComponent,
         PhoneBookComponent,
-        CreatePersonModalComponent        
+        CreatePersonModalComponent,
+        EditPersonModalComponent        
     
     ],
     imports: [
