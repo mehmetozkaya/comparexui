@@ -19,6 +19,7 @@ export class CreateUserComponent extends AppComponentBase implements OnInit {
     saving: boolean = false;
     user: CreateUserDto = null;
     roles: RoleDto[] = null;
+    reason: boolean = false;
 
     constructor(
         injector: Injector,
