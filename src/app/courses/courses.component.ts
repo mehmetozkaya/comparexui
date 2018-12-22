@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Injector } from '@angular/core';
 import { appModuleAnimation } from '@shared/animations/routerTransition';
 import { PagedListingComponentBase, PagedRequestDto } from '@shared/paged-listing-component-base';
-import { CaseListDto, CourseDto, CourseServiceProxy, ListResultDtoOfCourseDto } from '@shared/service-proxies/service-proxies';
+import { CaseListDto, CourseDto, CourseServiceProxy, ListResultDtoOfCourseDto, EntityDtoOfGuid } from '@shared/service-proxies/service-proxies';
 
 @Component({  
   templateUrl: './courses.component.html',
@@ -25,6 +25,7 @@ export class CoursesComponent extends PagedListingComponentBase<CourseDto> {
     this.loadCourses();
     finishedCallback();
   }
+
   protected delete(entity: CourseDto): void {
     abp.message.confirm(
       'Are you sure you want to cancel this course ?',

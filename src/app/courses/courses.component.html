@@ -4,11 +4,11 @@
         <div class="block-header row">
             <div class="col-md-6">
                 <h2>
-                    {{l('courses')}}                    
+                    {{l('Courses')}}                    
                 </h2>
             </div>
             <div class="col-md-6 text-right">
-                <button type="button" data-toggle="modal" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" (click)="createcourse()">
+                <button type="button" data-toggle="modal" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" (click)="createCourse()">
                     <i class="material-icons">add</i>
                 </button>
             </div>
@@ -19,7 +19,8 @@
                 <div class="card">
                     <div [class]="course.isCancelled ? 'header bg-red' : 'header'">
                         <h2>
-                            {{course.title}} <small class="course-description">{{course.description}}</small>
+                            {{course.title}} 
+                            <!-- <small class="course-description">{{course.description}}</small> -->
                         </h2>
                         <ul class="header-dropdown m-r-0">
                             <li>
@@ -56,5 +57,5 @@
         </div>
     </div>
   </div>
-  <create-course-modal #createCourseModal (modalSave)="refresh()"></create-course-modal>
+  <!-- <create-course-modal #createCourseModal (modalSave)="refresh()"></create-course-modal> -->
   
