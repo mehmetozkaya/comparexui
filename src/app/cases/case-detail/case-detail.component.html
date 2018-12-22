@@ -20,12 +20,13 @@
                 <div>
                     {{case.description}}
                 </div>
-                <h5>
-                    {{l("XregisteredOfYAvailableRegistration", case.registrationsCount, case.maxRegistrationCount)}}
-                </h5>
-
                 <hr />
-
+                <div>
+                    <h5>
+                            {{l("XregisteredOfYAvailableRegistration", case.registrationsCount, case.maxRegistrationCount)}}
+                    </h5>                    
+                </div>
+                <hr />
                 <table class="table table-hover">
                     <thead>
                         <tr>
