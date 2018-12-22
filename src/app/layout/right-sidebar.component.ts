@@ -32,7 +32,7 @@ export class RightSideBarComponent extends AppComponentBase implements OnInit {
         new UiThemeInfo("Black", "black")
     ];
 
-    selectedThemeCssClass: string = "red";
+    selectedThemeCssClass: string = "black";
 
     constructor(
         injector: Injector,

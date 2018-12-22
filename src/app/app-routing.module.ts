@@ -10,6 +10,7 @@ import { RolesComponent } from 'app/roles/roles.component';
 import { CasesComponent } from './cases/cases.component';
 import { CaseDetailComponent } from './cases/case-detail/case-detail.component';
 import { PhoneBookComponent } from './phonebook/phonebook.component';
+import { CoursesComponent } from './courses/courses.component';
 
 @NgModule({
     imports: [
@@ -23,6 +24,8 @@ import { PhoneBookComponent } from './phonebook/phonebook.component';
                     { path: 'roles', component: RolesComponent, data: { permission: 'Pages.Roles' }, canActivate: [AppRouteGuard] },
                     { path: 'cases', component: CasesComponent, data: { permission: 'Pages.Cases' }, canActivate: [AppRouteGuard] },
                     { path: 'cases/:caseId', component: CaseDetailComponent },
+                    { path: 'courses', component: CoursesComponent, data: { permission: 'Pages.Courses' }, canActivate: [AppRouteGuard] },
+                    // { path: 'courses/:courseId', component: CourseDetailComponent },
                     { path: 'phonebook', component: PhoneBookComponent, data: { permission: 'Pages.Tenant.PhoneBook' } , canActivate: [AppRouteGuard] },
                     { path: 'tenants', component: TenantsComponent, data: { permission: 'Pages.Tenants' }, canActivate: [AppRouteGuard] },
                     { path: 'about', component: AboutComponent }
