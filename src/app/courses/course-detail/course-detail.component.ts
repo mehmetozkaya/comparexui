@@ -12,7 +12,7 @@ import * as _ from 'lodash';
 export class CourseDetailComponent extends AppComponentBase implements OnInit {  
   
   course: CourseDetailOutput = new CourseDetailOutput();
-  courseId: Int32Array;
+  courseId: number;
 
   constructor(
     injector: Injector,
