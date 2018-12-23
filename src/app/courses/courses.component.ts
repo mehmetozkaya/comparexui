@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, Injector } from '@angular/core';
 import { appModuleAnimation } from '@shared/animations/routerTransition';
 import { PagedListingComponentBase, PagedRequestDto } from '@shared/paged-listing-component-base';
 import { CaseListDto, CourseDto, CourseServiceProxy, ListResultDtoOfCourseDto, EntityDtoOfGuid } from '@shared/service-proxies/service-proxies';
+import { CreateCourseComponent } from './create-course/create-course.component';
 
 @Component({  
   templateUrl: './courses.component.html',
@@ -9,7 +10,7 @@ import { CaseListDto, CourseDto, CourseServiceProxy, ListResultDtoOfCourseDto, E
 })
 export class CoursesComponent extends PagedListingComponentBase<CourseDto> { 
 
-  // @ViewChild('createCourseModal') createCourseModal : CreateCourseComponent;
+  @ViewChild('createCourseModal') createCourseModal : CreateCourseComponent;
 
   active: boolean = false;
   courses: CourseDto[] = [];
@@ -42,7 +43,7 @@ export class CoursesComponent extends PagedListingComponentBase<CourseDto> {
   }
 
   createCourse(): void {
-    // this.createCourseModal.show();
+    this.createCourseModal.show();
   }
 
   loadCourses() {
