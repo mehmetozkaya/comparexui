@@ -48,8 +48,7 @@ export class CreateCourseComponent extends AppComponentBase {
 
   save(): void {
     this.saving = true;
-    this.course.date = moment(); // TODO : add some day
-    //this.case.date = moment($(this.caseDate.nativeElement).data('DateTimePicker').date().format('YYYY-MM-DDTHH:mm:ssZ'));
+    this.course.date = moment(this.courseDate.nativeElement.value,"DD/MM/YYYY");      
 
     this._courseService.createAsync(this.course)     
         .pipe(finalize(() => { this.saving = false; }))
