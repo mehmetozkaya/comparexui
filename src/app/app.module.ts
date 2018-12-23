@@ -40,6 +40,7 @@ import { CreatePersonModalComponent } from './phonebook/create-person-modal/crea
 import { EditPersonModalComponent } from './phonebook/edit-person-modal/edit-person-modal.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CreateCourseComponent } from './courses/create-course/create-course.component';
+import { CourseDetailComponent } from './courses/course-detail/course-detail.component';
 
 @NgModule({
     declarations: [
@@ -68,7 +69,8 @@ import { CreateCourseComponent } from './courses/create-course/create-course.com
         CreatePersonModalComponent,
         EditPersonModalComponent,
         CoursesComponent,
-        CreateCourseComponent        
+        CreateCourseComponent,
+        CourseDetailComponent        
     
     ],
     imports: [
