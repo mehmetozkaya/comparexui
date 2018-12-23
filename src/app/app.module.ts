@@ -39,6 +39,7 @@ import { PhoneBookComponent } from './phonebook/phonebook.component';
 import { CreatePersonModalComponent } from './phonebook/create-person-modal/create-person-modal.component';
 import { EditPersonModalComponent } from './phonebook/edit-person-modal/edit-person-modal.component';
 import { CoursesComponent } from './courses/courses.component';
+import { CreateCourseComponent } from './courses/create-course/create-course.component';
 
 @NgModule({
     declarations: [
@@ -66,7 +67,8 @@ import { CoursesComponent } from './courses/courses.component';
         PhoneBookComponent,
         CreatePersonModalComponent,
         EditPersonModalComponent,
-        CoursesComponent        
+        CoursesComponent,
+        CreateCourseComponent        
     
     ],
     imports: [
