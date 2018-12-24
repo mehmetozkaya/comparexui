@@ -4181,6 +4181,7 @@ export interface IListResultDtoOfCourseDto {
 
 export class CourseDto implements ICourseDto {
     title: string | undefined;
+    description: string | undefined;
     date: moment.Moment | undefined;
     isCancelled: boolean | undefined;
     maxRegistrationCount: number | undefined;
@@ -4206,6 +4207,7 @@ export class CourseDto implements ICourseDto {
     init(data?: any) {
         if (data) {
             this.title = data["title"];
+            this.description = data["description"];
             this.date = data["date"] ? moment(data["date"].toString()) : <any>undefined;
             this.isCancelled = data["isCancelled"];
             this.maxRegistrationCount = data["maxRegistrationCount"];
@@ -4231,6 +4233,7 @@ export class CourseDto implements ICourseDto {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["title"] = this.title;
+        data["description"] = this.description;
         data["date"] = this.date ? this.date.toISOString() : <any>undefined;
         data["isCancelled"] = this.isCancelled;
         data["maxRegistrationCount"] = this.maxRegistrationCount;
@@ -4256,6 +4259,7 @@ export class CourseDto implements ICourseDto {
 
 export interface ICourseDto {
     title: string | undefined;
+    description: string | undefined;
     date: moment.Moment | undefined;
     isCancelled: boolean | undefined;
     maxRegistrationCount: number | undefined;
@@ -4272,6 +4276,7 @@ export interface ICourseDto {
 
 export class CourseDetailOutput implements ICourseDetailOutput {
     title: string | undefined;
+    description: string | undefined;
     date: moment.Moment | undefined;
     isCancelled: boolean | undefined;
     maxRegistrationCount: number | undefined;
@@ -4298,6 +4303,7 @@ export class CourseDetailOutput implements ICourseDetailOutput {
     init(data?: any) {
         if (data) {
             this.title = data["title"];
+            this.description = data["description"];
             this.date = data["date"] ? moment(data["date"].toString()) : <any>undefined;
             this.isCancelled = data["isCancelled"];
             this.maxRegistrationCount = data["maxRegistrationCount"];
@@ -4328,6 +4334,7 @@ export class CourseDetailOutput implements ICourseDetailOutput {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["title"] = this.title;
+        data["description"] = this.description;
         data["date"] = this.date ? this.date.toISOString() : <any>undefined;
         data["isCancelled"] = this.isCancelled;
         data["maxRegistrationCount"] = this.maxRegistrationCount;
@@ -4358,6 +4365,7 @@ export class CourseDetailOutput implements ICourseDetailOutput {
 
 export interface ICourseDetailOutput {
     title: string | undefined;
+    description: string | undefined;
     date: moment.Moment | undefined;
     isCancelled: boolean | undefined;
     maxRegistrationCount: number | undefined;
