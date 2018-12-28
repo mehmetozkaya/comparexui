@@ -99,4 +99,11 @@ export class PhoneBookComponent extends AppComponentBase implements OnInit {
             })
     }
 
+    workPerson(): void {
+        if(!this.newPhone.id) {
+            this.message.warn('There is no id !');
+            return;
+        }
+    }
+
 }
